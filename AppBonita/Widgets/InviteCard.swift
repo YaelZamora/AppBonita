@@ -15,12 +15,26 @@ struct InviteCard: View {
     var body: some View {
         VStack {
             HStack(spacing: -10) {
-                ForEach(0..<3) { item in
-                    (image)
-                    ? Image(systemName: "person.circle.fill")
-                    : Image(systemName: "creditcard.fill")
+                if image {
+                    ForEach(0..<3) { item in
+                        AsyncImage(
+                            url: URL(string: "https://picsum.photos/50")
+                        )
+                        .cornerRadius(25)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(.white, lineWidth: 2)
+                        }
+                    }
+                } else {
+                    ForEach(0..<2) { item in
+                        AsyncImage(
+                            url: URL(string: "https://picsum.photos/60/50")
+                        )
+                        .cornerRadius(10)
+                    }
                 }
-                Button {
+                NavigationLink {
                     //
                 } label: {
                     Image(systemName: "plus")

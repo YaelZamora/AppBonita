@@ -19,7 +19,11 @@ struct HomeTab: View {
                 Transactions()
                 HStack {
                     ForEach(0..<2) { item in
-                        InviteCard(titulo: titulos[item], descripcion: descripciones[item])
+                        InviteCard(
+                            titulo: titulos[item],
+                            descripcion: descripciones[item],
+                            image: (item == 0) ? true : false
+                        )
                     }
                 }
                 Spacer()
